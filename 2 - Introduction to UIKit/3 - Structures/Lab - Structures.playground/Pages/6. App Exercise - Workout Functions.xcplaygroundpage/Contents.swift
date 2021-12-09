@@ -1,11 +1,4 @@
-/*:
-## App Exercise - Workout Functions
- 
- >These exercises reinforce Swift concepts in the context of a fitness tracking app.
- 
- A `RunningWorkout` struct has been created for you below. Add a method on `RunningWorkout` called `postWorkoutStats` that prints out the details of the run. Then create an instance of `RunningWorkout` and call `postWorkoutStats()`.
- */
-struct RunningWorkout {
+  struct RunningWorkout {
     var distance: Double
     var time: Double
     var elevation: Double
@@ -18,7 +11,16 @@ struct Steps {
     var steps: Int
     var goal: Int
     
+    mutating func takeSteps() {
+        steps += 1
+    }
 }
+  
+  var mySteps = Steps(steps: 200, goal: 1000)
+  print(mySteps.steps)
+  mySteps.takeSteps()
+  print(mySteps.steps)
+  
 
 
 /*:

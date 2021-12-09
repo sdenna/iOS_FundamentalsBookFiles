@@ -7,6 +7,9 @@ struct Rectangle {
     var width: Int
     var height: Int
     
+    var area: Int {
+        width * height
+    }
 }
 
 
@@ -16,9 +19,25 @@ struct Rectangle {
  Create an instance of `Height` and then change one of its properties. Print out the other property to ensure that it was adjusted accordingly.
  */
 struct Height {
-    var heightInInches: Double
+    var heightInInches: Double {
+        didSet {
+            // Need to check if value needs to be changed to prevent an inf loop
+            if heightInCentimeters != heightInInches * 2.54 {
+                heightInCentimeters = heightInInches * 2.54
+                print("changed height in inches")
+            }
+        }
+    }
     
-    var heightInCentimeters: Double
+    var heightInCentimeters: Double {
+        didSet {
+            // Need to check if value needs to be changed to prevent an inf loop
+            if heightInInches != heightInCentimeters / 2.54 {
+                heightInInches = heightInCentimeters / 2.54
+                print("changed height in inches")
+            }
+        }
+    }
     
     init(heightInInches: Double) {
         self.heightInInches = heightInInches
@@ -29,7 +48,17 @@ struct Height {
         self.heightInCentimeters = heightInCentimeters
         self.heightInInches = heightInCentimeters/2.54
     }
+    
+    func printDetails() {
+        print("in: \(heightInInches) cm: \(heightInCentimeters)")
+    }
 }
+
+var myHeight = Height(heightInInches: 66)
+myHeight.printDetails()
+myHeight.heightInInches = 70.0
+myHeight.printDetails()
+
 
 
 
