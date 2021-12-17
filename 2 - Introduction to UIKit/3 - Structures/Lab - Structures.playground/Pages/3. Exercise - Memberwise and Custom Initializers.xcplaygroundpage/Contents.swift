@@ -19,9 +19,9 @@ struct Book {
     var price: Double
 }
 
-var favoriteBook = Book(title: "Harry Potter and the Sorcerors Stone", author: "JK Rowling", pages: 550, price: 15.95)
+var favoriteBook = Book(title: "Finally 12", author: "Wendy Mass", pages: 200, price: 11.95)
 
-print("\(favoriteBook.title) \(favoriteBook.author) \(favoriteBook.pages) pages $\(favoriteBook.price)")
+print("\(favoriteBook.title) \(favoriteBook.author) \(favoriteBook.pages) \(favoriteBook.price)")
 
 /*:
  Make a `Height` struct with two variable properties, `heightInInches` and `heightInCentimeters`. Both should be of type `Double`.

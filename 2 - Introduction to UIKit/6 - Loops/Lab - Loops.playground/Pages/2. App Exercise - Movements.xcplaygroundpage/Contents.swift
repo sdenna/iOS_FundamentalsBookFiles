@@ -7,11 +7,18 @@
  */
 let movements: [String] = ["Walking", "Running", "Swimming", "Cycling", "Skiing", "Climbing"]
 
-
+for index in 0..<movements.count {
+    print("\(movements[index])")
+}
 //:  Now suppose your app uses a dictionary to keep track of your average heart rate during each of the movements in `movements`. The keys correspond to the movements listed above, and the values correspond to the average heart rate that your fitness tracker has monitored during the given movement. Loop through `movementHeartRates` below, printing statements telling the user his/her average heart rate during each exercise.
 var movementHeartRates: [String: Int] = ["Walking": 85, "Running": 120, "Swimming": 130, "Cycling": 128, "Skiing": 114, "Climbing": 129]
 
+// Different for loop notation for dictionaries
 
+for (exercise, heartRate) in movementHeartRates {
+    print("\(exercise) \(heartRate)")
+        
+}
 /*:
 [Previous](@previous)  |  page 2 of 6  |  [Next: Exercise - While Loops](@next)
  */
